@@ -1,4 +1,3 @@
-# delta
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +12,8 @@
 
   <script>
     function verificarSenha() {
-      const senhaCorreta = "delt4"; // 🔑 Troque pela sua senha 
-      const destino = "https://drive.google.com/drive/folders/1XNtvg8FNX30WRND_P3khNkmNAhIt3iSA?usp=drive_link"; // 🌐 Troque pela URL real
+      const senhaCorreta = "1234"; // 🔑 Troque pela sua senha
+      const destino = "https://seulink.com"; // 🌐 Troque pela URL real
       const senhaDigitada = document.getElementById("senha").value;
 
       if (senhaDigitada === senhaCorreta) {
