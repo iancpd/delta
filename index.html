@@ -9,7 +9,8 @@
   <button onclick="desativar()">Desativar Bloqueio</button>
 
   <script>
-    const N8N_ENDPOINT = 'http://host.docker.internal:5678/webhook-test/cb65a5f8-9949-45b7-89e8-f7d00a261ef9'; // substitua pelo seu webhook do N8N
+    const N8N_ENDPOINT = 'https://abcd1234.ngrok.io/webhook-test/cb65a5f8-9949-45b7-89e8-f7d00a261ef9';
+
 
     function ativar() {
       fetch(N8N_ENDPOINT, {
@@ -31,3 +32,4 @@
   </script>
 </body>
 </html>
+
