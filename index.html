@@ -1,146 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delta Cheats - Catálogo</title>
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #f1f1f1;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    .logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      max-width: 300px;
-      width: 90%;
-      filter: drop-shadow(0 0 10px #ff0000);
-      border-radius: 12px;
-    }
-
-    .handle {
-      text-align: center;
-      font-size: 1.1em;
-      color: #ffffffaa;
-      margin-bottom: 30px;
-    }
-
-    .main-button {
-      display: block;
-      background: linear-gradient(90deg, #ff0000, #ff6600);
-      color: #fff;
-      font-size: 1.5em;
-      font-weight: bold;
-      padding: 15px 30px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 10px;
-      margin: 30px auto;
-      width: fit-content;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 0 15px #ff0000a0;
-    }
-
-    .main-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff0000;
-    }
-
-    .container {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    a {
-      color: #4eaaff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .highlight {
-      color: #00ff88;
-    }
-
-    .red {
-      color: #ff4c4c;
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-
-    .socials a {
-      margin-right: 15px;
-    }
-
-    ul {
-      list-style: "✅ ";
-      padding-left: 20px;
-    }
-
-    .drive-link {
-      background-color: #1f1f1f;
-      padding: 10px;
-      border-left: 4px solid limegreen;
-      margin-top: 10px;
-      display: inline-block;
-    }
-
-  </style>
+  <title>Controle da IA</title>
 </head>
 <body>
-  <div class="container">
-    <img class="logo" src="https://images-ext-1.discordapp.net/external/8B4Oe7wQn0DqCECSbi1aXU-dA1zHIBuXj_DqoYd_0TU/%3Fsize%3D2048/https/cdn.discordapp.com/icons/1391088513839010012/9edf736c1678b8e25724453410b4ff25.png?format=webp&quality=lossless">
-    
-    <div class="handle">@deltacheats</div>
+  <h1>Controle da IA</h1>
+  <button onclick="ativar()">Ativar Bloqueio</button>
+  <button onclick="desativar()">Desativar Bloqueio</button>
 
-    <a class="main-button" href="https://linkbio.co/deltasensiff" target="_blank">🛒 Compre Aqui</a>
+  <script>
+    const N8N_ENDPOINT = 'http://host.docker.internal:5678/webhook-test/cb65a5f8-9949-45b7-89e8-f7d00a261ef9'; // substitua pelo seu webhook do N8N
 
-    <div class="section">
-      <h2>❓ Como funciona ❓</h2>
-      <p>
-        Você vai acessar o <a href="https://linkbio.co/deltasensiff" target="_blank">catálogo</a> e clicar no produto que quer adquirir.
-        Após isso, você será redirecionado ao checkout de pagamento do Lastlink.
-      </p>
+    function ativar() {
+      fetch(N8N_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({bloqueioDelta: true})
+      })
+      .then(() => alert('Bloqueio ativado!'));
+    }
 
-      <ul>
-        <li>Compra 100% segura pelo Lastlink 🪙</li>
-        <li>Envio imediato para o seu e-mail (assim que pagar já recebe) 📧</li>
-        <li>Testado e aprovado por jogadores que já estão amassando 🔥</li>
-        <li>Ideal para rankeds e apostados 🏆</li>
-        <li>Todos os disponíveis no catálogo são <span class="highlight">ANTIBAN</span> e <span class="highlight">ANTIBLACKLIST</span></li>
-        <li>Todos são fáceis de disfarçar! ✅</li>
-        <li>Há produtos para ANDROID e iOS</li>
-      </ul>
-
-      <p>
-        Ainda não confia? Acesse esse drive:
-        <span class="drive-link">
-          <a href="https://drive.google.com/drive/folders/1K3YCjLajChYW7D_yvKaqCMfbF7cGZOzq?usp=sharing" target="_blank">Provas e avaliações</a>
-        </span>
-      </p>
-
-      <p class="red">🔴 Garanta já o seu e vire uma lenda no Free Fire!</p>
-      <p>✅ Todos os produtos após a compra possuem tutorial de instalação completo</p>
-
-      <p>👇 Compre agora e receba instruções completas para instalação sem dificuldade em seu email.</p>
-    </div>
-
-    <div class="section socials">
-      <p>Redes sociais:
-        <a href="https://www.tiktok.com/@deltacheat5?is_from_webapp=1&sender_device=pc" target="_blank">Tiktok</a> |
-        <a href="https://www.instagram.com/deltasensi/" target="_blank">Instagram</a> |
-        <a href="https://discord.gg/zaxJvbBZ2e" target="_blank">Discord</a>
-      </p>
-    </div>
-  </div>
+    function desativar() {
+      fetch(N8N_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({bloqueioDelta: false})
+      })
+      .then(() => alert('Bloqueio desativado!'));
+    }
+  </script>
 </body>
 </html>
